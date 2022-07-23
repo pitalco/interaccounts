@@ -2,18 +2,19 @@
   "name": "interaccounts-contract",
   "version": "0.1.0",
   "private": true,
-  "description": "Agoric contract for interchain account (ICS-27)",
+  "description": "Agoric contract for interchain accounts (ICS-27)",
   "type": "module",
   "scripts": {
     "build": "exit 0",
-    "test": "ava --verbose",
-    "lint": "eslint '**/*.{js,jsx}'",
-    "lint-fix": "eslint --fix '**/*.{js,jsx}'",
-    "lint-check": "eslint '**/*.{js,jsx}'",
-    "lint-fix-jessie": "eslint -c '.eslintrc-jessie.js' --fix '**/*.{js,jsx}'",
-    "lint-check-jessie": "eslint -c '.eslintrc-jessie.js' '**/*.{js,jsx}'"
+    "test": "npx ava ./test/test-contract.js",
+    "lint": "npx eslint '**/*.{js,jsx}'",
+    "lint-fix": "npx eslint --fix '**/*.{js,jsx}'",
+    "lint-check": "npx eslint '**/*.{js,jsx}'",
+    "lint-fix-jessie": "npx eslint -c '.eslintrc-jessie.js' --fix '**/*.{js,jsx}'",
+    "lint-check-jessie": "npx eslint -c '.eslintrc-jessie.js' '**/*.{js,jsx}'"
   },
   "devDependencies": {
+    "@agoric/babel-standalone": "^7.17.7",
     "ava": "^3.13.0",
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -25,7 +26,6 @@
   },
   "dependencies": {
     "@agoric/assert": "dev",
-    "@agoric/babel-standalone": "^7.17.7",
     "@agoric/ertp": "dev",
     "@agoric/notifier": "dev",
     "@agoric/store": "dev",
@@ -52,24 +52,25 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/schnetzlerjoe/interaccounts"
+    "url": "git+https://github.com/pital/interaccounts"
   },
   "author": "Pital",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/schnetzlerjoe/interaccounts/issues"
+    "url": "https://github.com/pital/interaccounts/issues"
   },
-  "homepage": "https://github.com/schnetzlerjoe/interaccounts#readme",
-  "eslintConfig": {
-    "extends": [
-      "@agoric"
-    ]
-  },
+  "homepage": "https://github.com/pital/interaccounts#readme",
   "prettier": {
     "trailingComma": "all",
-    "singleQuote": true
-  },
-  "eslintIgnore": [
-    "dappConstants.js"
-  ]
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": [
+          "*.js",
+          "*.cjs",
+          "*.mjs"
+        ]
+      }
+    ]
+  }
 }
